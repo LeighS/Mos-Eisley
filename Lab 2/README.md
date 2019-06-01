@@ -68,10 +68,14 @@ This would output something like this:
 )<br><br>
 
 
-:bulb: *Notice the follwing above*:<br>
-*%kql means that you are going to pass a KQL query on a single line. Using a double %% sign, means that you are going to use multi lines like the example in the following step*<br><br>
+:bulb: *Notice the following above*:<br>
+***%kql** means that you are going to pass a KQL query on a single line. Using a double %% sign, means that you are going to use multi lines like the example in the following step*<br><br>
 
-2. Insert another cell with the following:
+2. Insert another cell with the following and execute the cell:
 ```python
-
+%%kql
+SecurityEvent
+| where EventID == "4625"
+| project Computer, Account, IpAddress
+| limit 5
 ```
