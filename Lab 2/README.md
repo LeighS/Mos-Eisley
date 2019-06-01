@@ -22,7 +22,7 @@ Since your Notebook is running in Azure, you will see that KqlMagic is actually 
 
 :bulb: *Ctrl+Enter will execute the cell content, while typing "O" will clear the cell output*
 
-#### Configure your workspace settings
+#### Configure your workspace settings and connect
 To connect to your Sentinel workspace, we need to provide your workspace settings. This can be configured through a Jupyter configuration file (recommended) or in the Notebook itself. For now we will configure it in the Notebook.<br>
 
 :triangular_flag_on_post: *Your homework: figure out how you can get your workspace configuration settings from a config file*
@@ -53,4 +53,25 @@ print('We are going to use the following Log Analytics Workspace: {}'.format(wor
 ![alt text](https://github.com/tianderturpijn/Mos-Eisley/blob/master/Lab%202/images/login-workspace.png
 )<br><br>
 
+After a succesful Azure login, you are ready to run your first KQL query using a Jupyter Notebook!<br><br>
+*Note: ignore any Javascript errors*
 
+### Running a KQL query
+1. Insert a new cell, add the following and execute the cell:
+```python
+%kql SecurityAlert | summarize count() by ProductName
+```
+<br>
+This would output something like this:
+
+![alt text](https://github.com/tianderturpijn/Mos-Eisley/blob/master/Lab%202/images/kql-query1.png
+)<br><br>
+
+
+:bulb: *Notice the follwing above*:<br>
+*%kql means that you are going to pass a KQL query on a single line. Using a double %% sign, means that you are going to use multi lines like the example in the following step*<br><br>
+
+2. Insert another cell with the following:
+```python
+
+```
