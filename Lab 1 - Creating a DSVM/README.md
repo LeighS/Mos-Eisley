@@ -23,16 +23,16 @@ Now that you have created a project, let's add a Notebook.<br>
 )<br><br>
 
 ## Lab 3 - Start your Notebook
-Verify that your DSVM has deployed successfully and is up & running.<br><br>
+Verify that your DSVM has deployed successfully and is up & running.<br>
 
 Your NSG should contain a JupyterHub allow rule for TCP 8000.<br><br>
 
 1. Start your new Notebook and select the **Direct Compute** option.
-2. Configure the settings in the screen below after selecting:
+2. Configure the settings in the screen below based on your DSVM settings:
 ![alt text](https://github.com/tianderturpijn/Mos-Eisley/blob/master/Lab%201%20-%20Creating%20a%20DSVM/images/configure-dsvm.png
 )<br><br>
 
-Note:
+*Note:*<br>
 If you are getting a message "Kernel not found", select Python 3.6 - AzureML:
 ![alt text](https://github.com/tianderturpijn/Mos-Eisley/blob/master/Lab%201%20-%20Creating%20a%20DSVM/images/python3.6-kernel.png
 )<br><br>
