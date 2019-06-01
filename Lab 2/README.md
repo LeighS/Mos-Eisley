@@ -15,7 +15,7 @@ Copy and paste the following in your cell:
 This will install KqlMagic, a library that will run KQL queries against a workspace.<br>
 While having the cell selected, hit Ctrl+Enter, this will execute your cell content.
 
-![alt text](https://github.com/tianderturpijn/Mos-Eisley/blob/master/Lab%201%20-%20Creating%20a%20DSVM/images/install-kqlmagic.png
+![alt text](https://github.com/tianderturpijn/Mos-Eisley/blob/master/Lab%202/images/install-kqlmagic.png
 )<br><br>
 
 Since your Notebook is running in Azure, you will see that KqlMagic is actually already installed, this will not the case in a docker instance running locally.
