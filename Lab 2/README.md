@@ -1,5 +1,5 @@
 ## Lab 2 -  Building out your Jupyter Notebook
-In the following exercises you will build up your Notebook from scratch. Feel free to go explore on your own, copy snippets from other Notebooks, or to skip some parts (although some have dependencies). This is all about getting your hands dirty with Jupyter Notebooks.<br><br>
+In the following exercises you will build up your Notebook from scratch. Feel free to go explore on your own, copy snippets from other Notebooks, or to skip some parts (although some have dependencies). This is all about getting your hands dirty with Jupyter Notebooks.<br>
 
 My (personal) best learning experience is to start small, with snippets you understand, before cloning Notebooks. The following exercises are meant to do just that.<br><br>
 
@@ -15,7 +15,7 @@ Copy and paste the following in your cell:
 This will install KqlMagic, a library that will run KQL queries against a workspace.<br>
 While having the cell selected, hit Ctrl+Enter, this will execute your cell content.
 
-![alt text](https://github.com/tianderturpijn/Mos-Eisley/blob/master/Lab%201%20-%20Creating%20a%20DSVM/images/install-kql.png
+![alt text](https://github.com/tianderturpijn/Mos-Eisley/blob/master/Lab%201%20-%20Creating%20a%20DSVM/images/install-kqlmagic.png
 )<br><br>
 
 Since your Notebook is running in Azure, you will see that KqlMagic is actually already installed, this will not the case in a docker instance running locally.
