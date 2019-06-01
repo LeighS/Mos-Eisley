@@ -79,3 +79,14 @@ SecurityEvent
 | project Computer, Account, IpAddress
 | limit 5
 ```
+We are going to use the output to correlate the data with external information sources. Make sure you are seeing something like this:<br>
+
+![alt text](https://github.com/tianderturpijn/Mos-Eisley/blob/master/Lab%202/images/kql-query2.png
+)<br><br>
+
+The way how we can use the cell output is by creating a data set like the following:
+3. Insert another cell, add the following and execute the cell:
+```python
+# create dataframe
+connections = _.to_dataframe()
+```
