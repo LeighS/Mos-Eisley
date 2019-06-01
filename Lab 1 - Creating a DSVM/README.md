@@ -17,6 +17,11 @@ While the VM is being deployed, proceed to the next lab.
 ![alt text](https://github.com/tianderturpijn/Mos-Eisley/blob/master/Lab%201%20-%20Creating%20a%20DSVM/images/create-project.png
 )<br><br>
 
+Now that you have created a project, let's add a Notebook.<br>
+
+![alt text](https://github.com/tianderturpijn/Mos-Eisley/blob/master/Lab%201%20-%20Creating%20a%20DSVM/images/create-notebook.png
+)<br><br>
+
 ## Lab 3 - Start your Notebook
 Verify that your DSVM has deployed successfully and is up & running.<br><br>
 
