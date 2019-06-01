@@ -50,7 +50,7 @@ print('We are going to use the following Log Analytics Workspace: {}'.format(wor
 
 5. Make sure you pay attention to the cell output and login into Azure:
 
-![alt text](https://github.com/tianderturpijn/Mos-Eisley/blob/master/Lab%202/images/login-azure.png
+![alt text](https://github.com/tianderturpijn/Mos-Eisley/blob/master/Lab%202/images/login-workspace.png
 )<br><br>
 
 
