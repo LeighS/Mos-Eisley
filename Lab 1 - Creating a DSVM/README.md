@@ -17,5 +17,14 @@ While the VM is being deployed, proceed to the next lab.
 ![alt text](https://github.com/tianderturpijn/Mos-Eisley/blob/master/Lab%201%20-%20Creating%20a%20DSVM/images/create-project.png
 )<br><br>
 
+## Lab 3 - Start your Notebook
+Verify that your DSVM has deployed successfully and is up & running.<br><br>
 
+1. Start your Notebook on your deployed DSVM, as shown below:
+![alt text](https://github.com/tianderturpijn/Mos-Eisley/blob/master/Lab%201%20-%20Creating%20a%20DSVM/images/start-project.png
+)<br><br>
+
+Your NSG should contain a JupyterHub allow rule for TCP 8000, configure the settings in the screen below after selecting:
+![alt text](https://github.com/tianderturpijn/Mos-Eisley/blob/master/Lab%201%20-%20Creating%20a%20DSVM/images/configure-dsvm.png
+)<br><br>
 
