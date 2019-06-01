@@ -37,6 +37,9 @@ If you are getting a message "Kernel not found", select Python 3.6 - AzureML:
 ![alt text](https://github.com/tianderturpijn/Mos-Eisley/blob/master/Lab%201%20-%20Creating%20a%20DSVM/images/python3.6-kernel.png
 )<br><br>
 
+![alt text](https://github.com/tianderturpijn/Mos-Eisley/blob/master/Lab%201%20-%20Creating%20a%20DSVM/images/notebook-running.png
+)<br><br>
+
 **Your Jupyter Project and Notebook has been created and your notebook is up & running.<br>
 Proceed to the next lab, where the fun starts!**
 
