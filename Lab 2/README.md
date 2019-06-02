@@ -84,7 +84,7 @@ We are going to use the output to correlate the data with external information s
 ![alt text](https://github.com/tianderturpijn/Mos-Eisley/blob/master/Lab%202/images/kql-query2.png
 )<br><br>
 
-The way how we can use the cell output is by creating a data set like the following:
+The way how we can use the cell output is by creating a data set like the following:<br><br>
 3. Insert another cell, add the following and execute the cell:
 ```python
 # create dataframe
