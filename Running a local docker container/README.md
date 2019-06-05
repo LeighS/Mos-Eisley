@@ -1,92 +1,40 @@
-## Lab 2 -  Building out your Jupyter Notebook
-In the following exercises you will build up your Notebook from scratch. Feel free to go explore on your own, copy snippets from other Notebooks, or to skip some parts (although some have dependencies). This is all about getting your hands dirty with Jupyter Notebooks.<br>
+# Optional Lab
+## Running a local docker container to host your Jupyter Notebook
 
-My (personal) best learning experience is to start small, with snippets you understand, before cloning Notebooks. The following exercises are meant to do just that.<br><br>
+This lab provides you the basic steps to leverage a local docker container which will run your Jupyter Notebook locally. This has a benefit that it runs fast and you have all your potential confidential data local.
 
-### Connecting your Notebook with the Sentinel workspace
-The first thing you probably want to do, is to connect your Notebook with the Sentinel workspace.<br>
-Click on your first cell. Notice that you can switch **cell type** in the Cell menu , to either Code, Markdown or Raw NBConvert. The default is code.<br><br>
+#### Requirements
+1. Before continuing, make sure that you have configured your computer with Hyper-V and that you have enough local resources available.<br>
+2. In you Azure Notebooks environment, download your Notebook locally, so that you can import it later.
 
-Copy and paste the following in your cell:
-
-```python
-!pip install Kqlmagic --no-cache-dir --upgrade
+### Docker installation steps.
+1. Navigate to <a href="https://hub.docker.com/r/jupyter/scipy-notebook/" target="_blank">https://hub.docker.com/r/jupyter/scipy-notebook/</a>
+2. Download what you need
+3. Open PowerShell
+4. Verify your docker version by executing in PowerShell:
+```powershell
+docker version
 ```
-This will install KqlMagic, a library that will run KQL queries against a workspace.<br>
-While having the cell selected, hit Ctrl+Enter, this will execute your cell content.
-
-![alt text](https://github.com/tianderturpijn/Mos-Eisley/blob/master/Lab%202/images/install-kqlmagic.png
-)<br><br>
-
-Since your Notebook is running in Azure, you will see that KqlMagic is actually already installed, this will not the case in a docker instance running locally. But it's a good practice to make sure you have the lastest version running.
-
-:bulb: *Ctrl+Enter will execute the cell content, while typing "O" will clear the cell output*
-
-#### Configure your workspace settings and connect
-To connect to your Sentinel workspace, we need to provide your workspace settings. This can be configured through a Jupyter configuration file (recommended) or in the Notebook itself. For now we will configure it in the Notebook.<br>
-
-:triangular_flag_on_post: *Your homework: figure out how you can get your workspace configuration settings from a config file*
-
-1. Insert a new cell and add the following content:
-```python
-# Workspace connection variables
-path = %env PATH
-tenant_id = '<Your TenantId>'
-subscription_id = '<Your SubscriptionId>'
-resource_group = '<Your ResourceGroup>'
-workspace_id = '<Your WorkspaceId>'
-workspace_name = '<Your WorkspaceName>'
-print('We are going to use the following Log Analytics Workspace: {}'.format(workspace_name))
+5. Download docker Jupyter (execute in PowerShell):
+```powershell
+docker pull jupyter/scipy-notebook
 ```
-2. Run the cell
-3. Insert another cell and add the following:
-```python
-# Reload KqlMagic and connect to the workspace (requires )
-%reload_ext Kqlmagic
-%kql loganalytics://code;workspace=workspace_id;tenant=tenant_id;alias="<Your WorkspaceName>"
+6. Start you Jupyter Notebook (execute in PowerShell):
+```powershell
+docker run -p 8888:8888 jupyter/scipy-notebook
 ```
-4. Run the cell<br><br>
-:bulb: If you see an star in brackets like this **[*]** it means that the cell content is being executed 
-
-5. Make sure you pay attention to the cell output and login into Azure:
-
-![alt text](https://github.com/tianderturpijn/Mos-Eisley/blob/master/Lab%202/images/login-workspace.png
-)<br><br>
-
-After a succesful Azure login, you are ready to run your first KQL query using a Jupyter Notebook!<br><br>
-*Note: ignore any Javascript errors*
-
-### Running a KQL query
-**1. Insert a new cell, add the following and execute the cell:**
-```python
-%kql SecurityAlert | summarize count() by ProductName
+7. When you start your Jupyter instance, you will get your token in the output confirmation message, copy the connection string, similar like the following:
+```powershell
+http://127.0.0.1:8888/?token=67314026283a297c1dbc355a03ad370b0a097005e07f2f88
 ```
-<br>
-This would output something like this:
+8. Open a browser and navigate to your Jupyter instance by pasting in the http string you have copied in the previous step
 
-![alt text](https://github.com/tianderturpijn/Mos-Eisley/blob/master/Lab%202/images/kql-query1.png
-)<br><br>
+### Importing a Notebook
+In your Jupyter screen, click on import and import and run your Notebook.<br>
+
+#### Happy Hunting!
 
 
-:bulb: *Notice the following above*:<br>
-***%kql** means that you are going to pass a KQL query on a single line. Using a double %% sign, means that you are going to use multi lines like the example in the following step*<br><br>
 
-**2. Insert another cell with the following and execute the cell:**
-```python
-%%kql
-SecurityEvent
-| where EventID == "4625"
-| project Computer, Account, IpAddress
-| limit 5
-```
-We are going to use the output to correlate the data with external information sources. Make sure you are seeing something like this:<br>
 
-![alt text](https://github.com/tianderturpijn/Mos-Eisley/blob/master/Lab%202/images/kql-query2.png
-)<br><br>
 
-The way how we can use the cell output is by creating a data set like the following:<br><br>
-**3. Insert another cell, add the following and execute the cell:**
-```python
-# create dataframe
-connections = _.to_dataframe()
-```
