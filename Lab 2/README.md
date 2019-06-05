@@ -71,22 +71,61 @@ This would output something like this:
 :bulb: *Notice the following above*:<br>
 ***%kql** means that you are going to pass a KQL query on a single line. Using a double %% sign, means that you are going to use multi lines like the example in the following step*<br><br>
 
-**2. Insert another cell with the following and execute the cell:**
+### Matching VM addresses with TOR and C2 addresses
+In this exercise you will leverage ServiceMap Kusto data, which has outbound IP addresses.<br>
+You will match these addresses with TOR and C2 data to hunt for IOC's.
+
+#### Kusto query
+Execute the following to get the ServiceMap addresses:
 ```python
 %%kql
-SecurityEvent
-| where EventID == "4625"
-| project Computer, Account, IpAddress
-| limit 5
+VMConnection
+| where Direction == 'outbound'
+| limit 20
 ```
-We are going to use the output to correlate the data with external information sources. Make sure you are seeing something like this:<br>
-
-![alt text](https://github.com/tianderturpijn/Mos-Eisley/blob/master/Lab%202/images/kql-query2.png
-)<br><br>
-
-The way how we can use the cell output is by creating a data set like the following:<br><br>
-**3. Insert another cell, add the following and execute the cell:**
+Put the output in a dataframe:
 ```python
-# create dataframe
 connections = _.to_dataframe()
 ```
+
+Since you probably don't have a much, we are going to cheat a little bit and insert a row with a demo IP address:
+```python
+connections2 = pd.DataFrame({'DestinationIp': ['82.118.242.113'], 'Computer': ['ContosoDc']})
+connections=connections.append(connections2)
+connections
+```
+<br>
+
+:grey_exclamation: **Make sure you see the inserted row!**
+
+### Tor list retrieval
+Now you are going to retrieve an external TOR list.<br>
+First import the panda library:
+```python
+import pandas as pd
+```
+
+Now get the TOR list:
+```python
+torlist = pd.read_csv('https://www.dan.me.uk/torlist',header=0,names=["DestinationIp"])
+```
+Let's check if we got the TOR list allright:
+```python
+# Check if we have a solid Torlist, show only 5 rows
+torlist.sample(5)
+```
+Now, you are going to check if we have a match (you should):
+```python
+# Check if we find a match (you should since we inserted a demo row)
+connections.merge(torlist, on="DestinationIp")
+```
+You should see something like this:<br>
+
+![alt text](https://github.com/tianderturpijn/Mos-Eisley/blob/master/Lab%202/images/torlist.png
+)<br><br>
+
+
+
+
+
+
