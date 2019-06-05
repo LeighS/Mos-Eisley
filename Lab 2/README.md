@@ -1,7 +1,7 @@
 ## Lab 2 -  Building out your Jupyter Notebook
 In the following exercises you will build up your Notebook from scratch. Feel free to go explore on your own, copy snippets from other Notebooks, or to skip some parts (although some have dependencies). This is all about getting your hands dirty with Jupyter Notebooks.<br>
 
-My (personal) best learning experience is to start small, with snippets you understand, before cloning Notebooks. The following exercises are meant to do just that.<br><br>
+My (personal) best learning experience is to start small, with snippets you understand, before cloning Notebooks. The following exercises are meant to do just that.<br><br> 
 
 ### Connecting your Notebook with the Sentinel workspace
 The first thing you probably want to do, is to connect your Notebook with the Sentinel workspace.<br>
